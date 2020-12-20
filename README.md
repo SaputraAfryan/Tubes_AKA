@@ -6,7 +6,7 @@ Aplikasi ini dibuat untuk memenuhi komponen nilai tugas besar mata kuliah Analis
 
 ---
 
-##Contributor
+## Contributor
  
 Muhammad Afryan Saputra (1301190013)
 
