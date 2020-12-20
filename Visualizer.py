@@ -2,7 +2,7 @@ import tkinter as tk
 import random
 
 
-# Function to swap two bars that will be animated
+# Fungsi untuk swap dua bars yang akan dianimasikan
 def swap(pos_0, pos_1):
     bar11, _, bar12, _ = canvas.coords(pos_0)
     bar21, _, bar22, _ = canvas.coords(pos_1)
@@ -48,7 +48,7 @@ def _comb_sort():
                 swapped = True
                 yield
 
-# Triggering Fuctions
+# Fungsi untuk men-trigger animasi
 def comb_sort():
     global worker
     worker = _comb_sort()
@@ -59,7 +59,7 @@ def bubble_sort():
     worker = _bubble_sort()
     animate()
 
-# Animation Function
+# Fungsi Animasi
 def animate():
     global worker
     if worker is not None:
@@ -71,7 +71,7 @@ def animate():
         finally:
             window.after_cancel(animate)
             
-# Generator function for generating data
+# Fungsi untuk memuat data
 def generate():
     global barList
     global lengthList
@@ -81,7 +81,7 @@ def generate():
     barList = []
     lengthList = []
 
-    # Creating a rectangle
+    # Membuat bar
     for bar in range(1, 60):
         randomY = random.randint(1, 360)
         bar = canvas.create_rectangle(barstart, randomY, barend, 365, fill='yellow')
@@ -89,26 +89,26 @@ def generate():
         barstart += 10
         barend += 10
 
-    # Getting length of the bar and appending into length list
+    # Memberikan panjang bar dan memasukkan kedalam length list
     for bar in barList:
         bar = canvas.coords(bar)
         length = bar[3] - bar[1]
         lengthList.append(length)
 
-    # Maximum is colored Red
-    # Minimum is colored Black
+    # Maximum diwarnai merah
+    # Minimum diwarnai hitam
     for i in range(len(lengthList) - 1):
         if lengthList[i] == min(lengthList):
             canvas.itemconfig(barList[i], fill='red')
         elif lengthList[i] == max(lengthList):
             canvas.itemconfig(barList[i], fill='black')
 
-# Making a window using the Tk widget
+# Membuat window menggunakan Tk widget
 window = tk.Tk()
 window.title('Tubes AKA')
 window.geometry('600x450')
 
-# Making a Canvas within the window to display contents
+# Membuat Canvas didalam window untuk menampilkan konten
 canvas = tk.Canvas(window, width='600', height='400')
 canvas.grid(column=0, row=0, columnspan=50)
 
