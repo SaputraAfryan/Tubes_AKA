@@ -9,9 +9,7 @@ def swap(pos_0, pos_1):
     canvas.move(pos_0, bar21 - bar11, 0)
     canvas.move(pos_1, bar12 - bar22, 0)
 
-
 worker = None
-
 
 # Bubble Sort
 def _bubble_sort():
@@ -27,8 +25,6 @@ def _bubble_sort():
                 yield
 
 # Comb Sort
-
-
 def _comb_sort():
     global barList
     global lengthList
@@ -52,37 +48,16 @@ def _comb_sort():
                 swapped = True
                 yield
 
-
-    # for i in range(len(lengthList)):
-    #     min = i
-    #     for j in range(i + 1, len(lengthList)):
-    #         if (lengthList[j] < lengthList[min]):
-    #             min = j
-    #     lengthList[min], lengthList[i] = lengthList[i], lengthList[min]
-    #     barList[min], barList[i] = barList[i], barList[min]
-    #     swap(barList[min], barList[i])
-    #     yield
-
-
 # Triggering Fuctions
-
-# def insertion_sort():
-#     global worker
-#     worker = _insertion_sort()
-#     animate()
-
-
 def comb_sort():
     global worker
     worker = _comb_sort()
     animate()
 
-
 def bubble_sort():
     global worker
     worker = _bubble_sort()
     animate()
-
 
 # Animation Function
 def animate():
@@ -95,10 +70,8 @@ def animate():
             worker = None
         finally:
             window.after_cancel(animate)
-
-        # Generator function for generating data
-
-
+            
+# Generator function for generating data
 def generate():
     global barList
     global lengthList
@@ -130,10 +103,8 @@ def generate():
         elif lengthList[i] == max(lengthList):
             canvas.itemconfig(barList[i], fill='black')
 
-
 # Making a window using the Tk widget
 window = tk.Tk()
-#window.title('Sorting Visualizer')
 window.title('Tubes AKA')
 window.geometry('600x450')
 
@@ -142,12 +113,9 @@ canvas = tk.Canvas(window, width='600', height='400')
 canvas.grid(column=0, row=0, columnspan=50)
 
 # Buttons
-#insert = tk.Button(window, text='Insertion Sort', command=insertion_sort)
-# select = tk.Button(window, text='Selection Sort', command=selection_sort)
 comb = tk.Button(window, text='Comb Sort', command=comb_sort)
 bubble = tk.Button(window, text='Bubble Sort', command=bubble_sort)
 shuf = tk.Button(window, text='Shuffle', command=generate)
-# insert.grid(column=1, row=1)
 comb.grid(column=2, row=1)
 bubble.grid(column=3, row=1)
 shuf.grid(column=0, row=1)
