@@ -1,7 +1,6 @@
 import tkinter as tk
 import random
 
-
 # Fungsi untuk swap dua bars yang akan dianimasikan
 def swap(pos_0, pos_1):
     bar11, _, bar12, _ = canvas.coords(pos_0)
